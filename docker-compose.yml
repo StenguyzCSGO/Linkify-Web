@@ -1,0 +1,22 @@
+services:
+  dev:
+    build: .
+    command: npm run dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      NUXT_HOST: 0.0.0.0
+      NUXT_PORT: 3000
+    stdin_open: true
+    tty: true
+  
+  build:
+    build: .
+    profiles:
+      - build
+    volumes:
+      - .:/app
+      - /app/node_modules

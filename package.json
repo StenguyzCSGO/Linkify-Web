@@ -1,5 +1,5 @@
 {
-  "name": "Linkify-Web",
+  "name": "linkify-web",
   "type": "module",
   "private": true,
   "scripts": {
