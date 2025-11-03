@@ -1,0 +1,35 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Ensure cards have proper background contrast */
+:root {
+  --ui-bg-card: light-dark(white, rgb(24, 24, 27));
+  --ui-bg-muted: light-dark(rgb(244, 244, 245), rgb(39, 39, 42));
+}

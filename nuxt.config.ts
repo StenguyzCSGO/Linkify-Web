@@ -2,5 +2,18 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/ui', '@nuxt/image']
+  modules: ['@nuxt/ui', '@nuxt/image'],
+  css: ['~/assets/css/main.css'],
+  
+  colorMode: {
+    preference: 'system'
+  },
+
+  app: {
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/linkify.ico' }
+      ]
+    }
+  }
 })

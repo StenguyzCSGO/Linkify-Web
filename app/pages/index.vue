@@ -1,5 +1,11 @@
 <template>
+    <Hero/>
+    <Features/>
+    <Platforms/>
+    <Demo/>
+    <Statistics/>
+    <Footer/>
 </template>
 
-<script lang="js">
+<script setup lang="ts">
 </script>
