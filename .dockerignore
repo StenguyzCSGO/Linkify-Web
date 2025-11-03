@@ -1,0 +1,14 @@
+# Ignore local dependencies and build artifacts
+node_modules
+.nuxt
+.output
+
+# VCS and editor files
+.git
+.gitignore
+*.swp
+*.log
+.DS_Store
+
+# Exclude docker-compose override caches, not needed for build context
+**/docker-compose*.yml

@@ -24,7 +24,7 @@
     <template #headline>
       <div class="mb-6">
         <img
-          src="/linkify.png"
+          src="/linkify.webp"
           alt="Linkify logo"
           class="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 mx-auto"
         />

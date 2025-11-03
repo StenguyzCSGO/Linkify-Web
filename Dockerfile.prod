@@ -1,0 +1,28 @@
+## Multi-stage Dockerfile: build static Nuxt site and serve with Nginx
+
+# 1) Builder: install deps and generate static site
+FROM node:20-alpine AS builder
+WORKDIR /app
+
+# Install dependencies (prefer lockfile if present)
+COPY package*.json ./
+RUN npm ci || npm install
+
+# Copy project and generate static site to .output/public
+COPY . .
+RUN npm run generate
+
+# 2) Export stage to write static files to the host via BuildKit --output
+FROM scratch AS public
+COPY --from=builder /app/.output/public/ /
+
+# 3) Final server: Nginx serving the generated static files
+FROM nginx:alpine AS server
+
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d
+
+# Copy generated static files from builder stage
+COPY --from=builder /app/.output/public /usr/share/nginx/html
+
+EXPOSE 80
